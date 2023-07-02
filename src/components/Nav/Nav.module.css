@@ -1,0 +1,14 @@
+.buttonNav{
+    height: 35px;
+    border-radius: 10px;
+    margin: 7px;
+    width: 70px;
+    background-color: #28a745;
+    color: white;
+    /* border: 2px solid;
+    border-color: black; */
+    border: none;
+}
+.buttonNav:hover{
+    background-color: rgba(49, 161, 83, 0.6);
+}
