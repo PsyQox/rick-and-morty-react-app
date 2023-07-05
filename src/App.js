@@ -10,6 +10,7 @@ import About from './view/About/About';
 import Detail from './view/Detail/Detail';
 import Error from './view/Error';
 import Landing from './view/Landing/Landing';
+import Favorites from './components/Favorites/Favorites'
 
 function App() {
 
@@ -96,6 +97,7 @@ function App() {
             <Route path='/about' element={<About/>}/>
             <Route path='/detail/:id' element={<Detail/>}/>
             <Route path="/" element={<Landing login={login}/>}/>
+            <Route path='/favorites' element={<Favorites />}/>
             <Route path='*' element={<Error/>}/>
          </Routes>
 

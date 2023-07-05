@@ -13,6 +13,10 @@ const Nav = (props)=>{
             <Link to='/home'>
                 <button className={style.buttonNav}>Home</button>
             </Link>
+            <Link to="/favorites">
+                <button className={style.buttonNav}>Favorites</button>
+            </Link>
+            
             
                 <button className={style.buttonNav} onClick={()=>props.logOut()}>Log Out</button>
             
