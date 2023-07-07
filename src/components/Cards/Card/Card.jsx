@@ -4,7 +4,7 @@ import {Link, useLocation} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { addFav,removeFav } from "../../../redux/actions";
 
-export default function Card({key,id,name,onClose,image}) {
+export default function Card({key,id,name,onClose,gender,image}) {
    
    const [isFav, setIsFav] = useState(false);
    const myFavorites = useSelector(state=> state.myFavorites)
@@ -26,7 +26,7 @@ export default function Card({key,id,name,onClose,image}) {
       });
    }, [myFavorites]);
    
-   const handleFavorite = (id,name,image)=>{
+   const handleFavorite = ()=>{
       if (isFav) {
          setIsFav(false)
          // mapDispatchToProps.removeFav(id)
@@ -34,7 +34,7 @@ export default function Card({key,id,name,onClose,image}) {
       }else{
          setIsFav(true)
          // mapDispatchToProps.addFav(id,name,image)
-         dispatch(addFav({id,name,image, onClose}))
+         dispatch(addFav({id,name,gender,image, onClose}))
       }
    }
 
@@ -50,17 +50,16 @@ export default function Card({key,id,name,onClose,image}) {
                <h2 className={style.h2Card} > {name}</h2>
                <div className={style.containerButton}>
                   {  isFav ? (
-                     <button onClick={() => handleFavorite(id,name,image,onClose)}>❤️</button>
+                     <button onClick={() => handleFavorite()}>❤️</button>
                   ) : (
-                     <button onClick={() => handleFavorite(id, name,image,onClose)}>🤍</button>
+                     <button onClick={() => handleFavorite()}>🤍</button>
                   )}
-                  { locate.pathname === '/favorites' ? null:<button className={style.buttonClose} onClick={()=>{
+                  { locate.pathname === '/favorites' ? null: <button className={style.buttonClose} onClick={()=>{
                      onClose(id) 
                      removeFavorite(id)}} >X</button> }
-                  
-                  
-
-                  <Link to={`/detail/${id}`}><button className={style.button}>Detalle</button></Link>
+                  <Link to={`/detail/${id}`}>
+                     <button className={style.button}>Detalle</button>
+                  </Link>
                </div>
          </div>
       </div>

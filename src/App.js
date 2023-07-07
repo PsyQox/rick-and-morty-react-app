@@ -39,15 +39,15 @@ function App() {
 
 
    const onSearch = (id) =>{
-      let exist = false
-      let idN = parseInt(id)
+   let exist = false
+   let idN = parseInt(id)
 
-      characters.map(char=>{
-         if (char.id === idN) {
-            return exist = true
-         }
-         return exist
-      })
+   characters.map(char=>{
+      if (char.id === idN) {
+         return exist = true
+      }
+      return exist
+   })
 
       if (!exist) {
          fetch(`https://rickandmortyapi.com/api/character/${id}`)
@@ -88,7 +88,6 @@ function App() {
    }
  
     
-   
     return (
       <div className='App'>
          {location.pathname !== "/" && <Nav onSearch={onSearch} logOut={logOut}/>}

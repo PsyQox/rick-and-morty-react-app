@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Shlop';
+    src: url("../../fonts/shlop\ rg.ttf");
+}
 .buttonNav{
     height: 35px;
     border-radius: 10px;
@@ -5,10 +9,15 @@
     width: 70px;
     background-color: #28a745;
     color: white;
-    /* border: 2px solid;
-    border-color: black; */
     border: none;
 }
 .buttonNav:hover{
     background-color: rgba(49, 161, 83, 0.6);
+}
+
+.title{
+    font-family: 'Shlop';
+    color: rgb(26, 99, 16);
+    font-size: 50px;
+    background-color: rgba(255, 255, 255, 0.6);
 }

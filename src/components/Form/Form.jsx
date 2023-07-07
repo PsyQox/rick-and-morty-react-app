@@ -24,7 +24,6 @@ const Form = (props) => {
                     <label>Email</label>
                     <input className={style.input} type="text" name="email" onChange={handleChange} value={userData.email}/>
                     {errors.email ? <span style={{color:"red"}} >{errors.email}</span>:null}
-                
                     <label>Password</label>
                     <input className={style.input} type="password" name="password" onChange={handleChange} value={userData.password}/>
                     {errors.password ? <span style={{color:"red"}} >{errors.password}</span>:null}
