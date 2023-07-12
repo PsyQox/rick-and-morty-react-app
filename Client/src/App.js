@@ -32,7 +32,6 @@ function App() {
       setAccess(false);
    }
 
-
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
@@ -74,20 +73,22 @@ function App() {
    }
 
    const onClose = (id)=>{
-      let idN = parseInt(id)
       let chara = []
+      // let idN = parseInt(id)
       // setCharacters([]);
       //Se puede hacer con un filter
+      // console.log("entre", id);
       characters.map(char =>{
-         if (char.id !== idN) {
+         if (char.id !== id) {
              return chara.push(char)
          }
          return chara
       })
+      // let chara = characters.filter(char => char.id !== id)
       setCharacters(chara);
    }
  
-    
+   //  console.log(characters);
     return (
       <div className='App'>
          {location.pathname !== "/" && <Nav onSearch={onSearch} logOut={logOut}/>}

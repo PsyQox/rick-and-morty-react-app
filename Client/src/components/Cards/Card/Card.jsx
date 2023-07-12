@@ -13,7 +13,7 @@ export default function Card({key,id,name,onClose,gender,image}) {
 
    //Se puede hacer con connect
 
-   // const mapDispatchToProps = {
+   // const mapDispatchToProps = { 
    //       addFav: dispatch(addFav()),
    //       removeFav: dispatch(removeFav())
    //    }
