@@ -9,7 +9,7 @@ function getCharById(res, id){
             name:data.name,
             gender:data.gender,
             species:data.species,
-            origin:data.origin.name,
+            origin:data.origin,
             image:data.image,
             status:data.status
         }
@@ -18,7 +18,7 @@ function getCharById(res, id){
         res.end(JSON.stringify(obj))
     })
     .catch((error)=>{
-        res.writeHead(500, {"Content-Type":"text/plain"})
+        res.writeHead(404, {"Content-Type":"text/plain"})
         res.end(error.message)
     })
        
