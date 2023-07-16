@@ -39,8 +39,10 @@ export default function Card({key,id,name,onClose,gender,image}) {
    }
 
    const removeFavorite = (id)=>{
-      setIsFav(false)
-      dispatch(removeFav(id))
+      if (myFavorites.length > 0) {
+         setIsFav(false)
+         dispatch(removeFav(id))
+      }
    }
 
    return (

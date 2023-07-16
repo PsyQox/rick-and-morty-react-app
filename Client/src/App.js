@@ -11,6 +11,7 @@ import Detail from './view/Detail/Detail';
 import Error from './view/Error';
 import Landing from './view/Landing/Landing';
 import Favorites from './components/Favorites/Favorites'
+import axios from 'axios'
 
 function App() {
 
@@ -21,11 +22,21 @@ function App() {
    const PASSWORD = "qwe123";
    const navigate = useNavigate();
 
+   // function login(userData) {
+   //    if (userData.password === PASSWORD && userData.email === EMAIL) {
+   //       setAccess(true);
+   //       navigate('/home'); 
+   //    }
+   // }
+
    function login(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home'); 
-      }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    function logOut(){
