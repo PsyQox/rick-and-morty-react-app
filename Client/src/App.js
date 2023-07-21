@@ -29,14 +29,19 @@ function App() {
    //    }
    // }
 
-   function login(userData) {
+   async function login(userData){
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      try {
+         const { data } = await axios(URL + `?email=${email}&password=${password}`)
          const { access } = data;
-         setAccess(data);
+         setAccess(access);
          access && navigate('/home');
-      });
+      } catch (error) {
+         alert("El correo o la contraseña no esta correcta")
+      }
+      
+      
    }
 
    function logOut(){
@@ -48,7 +53,7 @@ function App() {
    }, [access]);
 
 
-   const onSearch = (id) =>{
+   const onSearch = async (id) =>{
    let exist = false
    let idN = parseInt(id)
 
@@ -60,15 +65,18 @@ function App() {
    })
       if (!exist) {
          // fetch(`https://rickandmortyapi.com/api/character/${id}`)
-         fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-         .then(res=>res.json())
-         .then((data) =>{
+           try {
+            const data = await fetch(`http://localhost:3001/rickandmorty/character/${id}`).then(res=>res.json()) 
             if (data.name) {
-                  setCharacters([...characters,data])
+               setCharacters([...characters,data])
             }else{
                window.alert("No hay personajes con ese ID")
             }
-         })
+           } catch (error) {
+               window.alert("No hay personajes con ese ID")   
+           }
+            
+         
       }else{
          window.alert("No se puede agregar repetidos")
       }

@@ -22,7 +22,7 @@ const rootReducer = (state = initialState, action)=>{
             return{
                 // ...state, myFavorites: state.myFavorites.filter(fav => fav.id !== action.payload),
                 // allCharacters: state.allCharacters.filter(fav => fav.id !== action.payload)
-                ...state, myFavorites: action.payload
+                ...state, myFavorites: action.payload, allCharacters: action.payload
                 // ...state, allCharacters: action.payload filtros corruptos
             }
         case FILTER:
