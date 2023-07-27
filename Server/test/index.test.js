@@ -22,7 +22,7 @@ describe('GET /rickandmorty/character/:id',()=>{
 describe("GET /rickandmorty/login", ()=>{
     // email: "luisrodrizza@gmail.com", password: "qwe123"
     it("Si existe el usuario y la contraseña regresa un access = true", async ()=>{
-        agent.post()
+        
         const response = await agent.get("/rickandmorty/login/?email=luisrodrizza@gmail.com&password=qwe123")
         expect({access:true}).toEqual(response._body)
 
@@ -36,7 +36,7 @@ describe("GET /rickandmorty/login", ()=>{
 
 describe("DELETE /rickandmorty/fav/:id",()=>{
     it("Si NO se encuentra el id, te regresa los personajes sin modificar", async ()=>{
-        agent.get()
+
         const response = await agent.delete("/rickandmorty/fav/2122")
         expect(fav).toEqual(response._body)
     })
