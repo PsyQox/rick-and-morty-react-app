@@ -9,10 +9,12 @@ export default function Cards(props) {
          key={pj.id}
          id={pj.id}
          name={pj.name} 
+         origin={pj.origin?.name}
+         status={pj.status}
+         image={pj.image}
          species={pj.species} 
-         onClose={props.onClose} 
          gender={pj.gender} 
-          image={pj.image}
+         onClose={props.onClose} 
          />
       })}
    </div>);

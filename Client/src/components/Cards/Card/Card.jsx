@@ -4,7 +4,7 @@ import {Link, useLocation} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { addFav,removeFav } from "../../../redux/actions";
 
-export default function Card({key,id,name,onClose,gender,image}) {
+export default function Card({key,id,name,origin,status,species,onClose,gender,image}) {
    
    const [isFav, setIsFav] = useState(false);
    const myFavorites = useSelector(state=> state.myFavorites)
@@ -34,7 +34,7 @@ export default function Card({key,id,name,onClose,gender,image}) {
       }else{
          setIsFav(true)
          // mapDispatchToProps.addFav(id,name,image)
-         dispatch(addFav({id,name,gender,image, onClose}))
+         dispatch(addFav({id,name,origin,status,gender,image,species ,onClose}))
       }
    }
 

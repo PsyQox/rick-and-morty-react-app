@@ -25,9 +25,23 @@ UserModel(sequelize)
 // Ejercicio 06
 // ¡Relaciona tus modelos aquí abajo!
 const { User, Favorite } = sequelize.models;
-
+//Relacion muchos a muchos
 User.belongsToMany(Favorite,{through:'user_favorite',timestamps:false})
 Favorite.belongsToMany(User,{through:'user_favorite',timestamps:false})
+/*
+COMPRUEBA LA CONEXION
+async function testConnection(){
+   try {
+      await sequelize.authenticate()
+      console.log("Conection to DB Goood");
+   } catch (error) {
+      console.log("No se pudo conectar");
+   }
+}
+
+testConnection()
+*/
+
 
 module.exports = {
    User,

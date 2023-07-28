@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-
+//Se puede llamar Character para evitar confuciones
 module.exports = (sequelize) => {
    sequelize.define('Favorite', {
       id:{
